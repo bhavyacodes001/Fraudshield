@@ -102,13 +102,6 @@ const Index = () => {
         <FraudStats />
         <CallToAction />
         <Footer />
-
-        {/* ✅ Help Assistant Section at the Bottom */}
-        <section className="section-spacing bg-muted">
-          <div className="container-custom">
-            <HelpAssistant />
-          </div>
-        </section>
       </div>
     </ThemeProvider>
   );
