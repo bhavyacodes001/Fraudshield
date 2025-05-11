@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { CheckCircle2, Shield, ShieldCheck, ShieldAlert } from 'lucide-react';
 
@@ -145,6 +144,7 @@ const PricingSection: React.FC = () => {
               
               <div className="p-6 md:p-8 border-t border-border theme-transition bg-card">
                 <button 
+                  onClick={() => window.open('https://drive.google.com/file/d/1HKUyvMCvsiX4_WGdlIHWouJk47dXYsit/view?usp=sharing', '_blank', 'noopener,noreferrer')}
                   className={`w-full py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
                     plan.mostPopular
                       ? 'bg-shield-500 hover:bg-shield-600 text-white'

@@ -2,7 +2,66 @@
 
 ## Project Introduction
 
-FraudShield is a modern web application designed for detecting and preventing fraud. It provides users with tools to identify and prevent suspicious activities.
+FraudShield is a modern web application designed for detecting and preventing fraud. It provides users with tools to identify and prevent suspicious activities, powered by advanced AI technology.
+
+## Features
+
+### AI-Powered Security
+- **Smart Fraud Detection**: Our AI algorithms continuously analyze transaction patterns to identify and block suspicious activities before they can cause harm.
+- **Behavioral Analysis**: Machine learning models that adapt to evolving fraud techniques by studying user behavior patterns and identifying anomalies.
+- **Intelligent Alerts**: Get instant notifications about potential threats with actionable recommendations to secure your accounts and personal information.
+
+### User-Friendly Interface
+- Modern, responsive design built with React and Tailwind CSS
+- Real-time protection status monitoring
+- Comprehensive security dashboard
+
+## Project Structure
+
+The project consists of two main parts:
+1. **Frontend**: React application with Tailwind CSS and shadcn-ui
+2. **Backend**: Express server with AI integration via Groq API
+
+## Getting Started
+
+### Prerequisites
+- Node.js and npm (or yarn/pnpm)
+- Git
+
+### Installation
+
+```sh
+# Step 1: Clone the repository
+git clone https://github.com/bhavyacodes001/Fraudshield.git
+
+# Step 2: Navigate to the project directory
+cd Fraudshield
+
+# Step 3: Install the frontend dependencies
+npm install
+
+# Step 4: Install the backend dependencies
+cd backend
+npm install
+cd ..
+```
+
+### Running the Application
+
+You need to run both the frontend and backend servers:
+
+```sh
+# Terminal 1: Start the backend server
+cd backend
+npm start
+
+# Terminal 2: Start the frontend development server
+# (from the project root)
+npm run dev
+```
+
+The frontend will be available at http://localhost:8080 (or another port if 8080 is in use).
+The backend API runs on http://localhost:5000.
 
 ## Fraud Statistics in India
 
@@ -48,13 +107,13 @@ Follow these steps:
 
 ```sh
 # Step 1: Clone the repository
-git clone https://github.com/CollegeCanvas/FraudShield
+git clone https://github.com/bhavyacodes001/Fraudshield.git
 
 # Step 2: Navigate to the project directory
-cd FraudShield
+cd Fraudshield
 
 # Step 3: Install the necessary dependencies
-npm i
+npm install
 
 # Step 4: Start the development server
 npm run dev
@@ -78,9 +137,19 @@ npm run dev
 
 This project uses the following technologies:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Frontend
+- Vite - Fast build tool and development server
+- React - UI library
+- TypeScript - Type-safe JavaScript
+- Tailwind CSS - Utility-first CSS framework
+- shadcn-ui - Reusable UI components
+
+### Backend
+- Express - Web server framework
+- OpenAI/Groq API - AI integration for intelligent responses
+- Nodemon - Development server with hot reload
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 

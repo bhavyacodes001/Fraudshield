@@ -52,7 +52,9 @@ const Navbar: React.FC = () => {
           <div className="flex items-center space-x-4">
             <ThemeToggle />
             <a 
-              href="#" 
+              href="https://drive.google.com/file/d/1HKUyvMCvsiX4_WGdlIHWouJk47dXYsit/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="glow-button bg-shield-500 text-white font-medium px-4 py-2 rounded-lg hover:bg-shield-600 transition-all duration-300"
             >
               Install Now
@@ -91,7 +93,9 @@ const Navbar: React.FC = () => {
             </a>
           ))}
           <a
-            href="#"
+            href="https://drive.google.com/file/d/1HKUyvMCvsiX4_WGdlIHWouJk47dXYsit/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-shield-500 text-white font-medium px-4 py-2 rounded-lg hover:bg-shield-600 transition-all duration-300 text-center"
           >
             Install Now

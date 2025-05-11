@@ -2,15 +2,16 @@ import { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import ParticleBackground from '../components/ParticleBackground';
 import { ThemeProvider } from '../context/ThemeContext';
-import { Shield, AlertCircle, ZapOff, ShieldCheck, Zap, Scan, Lock } from 'lucide-react';
+import { Shield, AlertCircle, ZapOff, ShieldCheck, Zap, Scan, Lock, Bot, BrainCircuit, Bell } from 'lucide-react';
 import FeatureCard from '../components/FeatureCard';
-import HelpAssistant from '../../HelpAssistant';
 
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import HowItWorks from '../components/HowItWorks';
 import FraudStats from '../components/FraudStats';
 import CallToAction from '../components/CallToAction';
+import CompetitiveAnalysis from '../components/CompetitiveAnalysis';
+import CompetitiveSummaryTable from '../components/CompetitiveSummaryTable';
 
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -98,9 +99,61 @@ const Index = () => {
           </div>
         </section>
 
+        <CompetitiveAnalysis />
+        <CompetitiveSummaryTable />
         <HowItWorks />
         <FraudStats />
         <CallToAction />
+        
+        {/* AI Features Section */}
+        <section className="section-spacing bg-background theme-transition relative">
+          <div className="container-custom">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <div className="inline-flex items-center rounded-full bg-shield-100 dark:bg-shield-900/50 px-3 py-1 text-sm font-medium text-shield-600 dark:text-shield-300 mb-4">
+                <Bot className="mr-1 h-3 w-3" /> AI-Powered Protection
+              </div>
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Advanced AI Security Features</h2>
+              <p className="text-foreground/80 text-lg">
+                Our platform leverages artificial intelligence to provide cutting-edge fraud protection
+              </p>
+            </div>
+            
+            <div className="bg-card border border-border rounded-lg shadow-md overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
+                <div className="p-6 flex flex-col items-center text-center">
+                  <div className="h-12 w-12 rounded-full bg-shield-100 dark:bg-shield-900/50 flex items-center justify-center mb-4">
+                    <BrainCircuit className="h-6 w-6 text-shield-500" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Smart Fraud Detection</h3>
+                  <p className="text-foreground/70">
+                    Our AI algorithms continuously analyze transaction patterns to identify and block suspicious activities before they can cause harm.
+                  </p>
+                </div>
+                
+                <div className="p-6 flex flex-col items-center text-center">
+                  <div className="h-12 w-12 rounded-full bg-shield-100 dark:bg-shield-900/50 flex items-center justify-center mb-4">
+                    <Zap className="h-6 w-6 text-shield-500" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Behavioral Analysis</h3>
+                  <p className="text-foreground/70">
+                    Machine learning models that adapt to evolving fraud techniques by studying user behavior patterns and identifying anomalies.
+                  </p>
+                </div>
+                
+                <div className="p-6 flex flex-col items-center text-center">
+                  <div className="h-12 w-12 rounded-full bg-shield-100 dark:bg-shield-900/50 flex items-center justify-center mb-4">
+                    <Bell className="h-6 w-6 text-shield-500" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Intelligent Alerts</h3>
+                  <p className="text-foreground/70">
+                    Get instant notifications about potential threats with actionable recommendations to secure your accounts and personal information.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <Footer />
       </div>
     </ThemeProvider>

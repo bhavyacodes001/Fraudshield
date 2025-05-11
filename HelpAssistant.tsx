@@ -1,74 +1,65 @@
 import React, { useState } from 'react';
 
 const HelpAssistant = () => {
-  const [hasSSL, setHasSSL] = useState('');
-  const [score, setScore] = useState('');
-  const [result, setResult] = useState('');
+  const [message, setMessage] = useState('');
+  const [response, setResponse] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    if (hasSSL === 'yes') {
-      const scoreValue = parseInt(score);
-      if (scoreValue > 70) {
-        setResult('✅ This website appears safe. You can proceed.');
-      } else if (scoreValue >= 60 && scoreValue <= 70) {
-        setResult('⚠️ This website might be risky. Proceed at your own risk.');
-      } else {
-        setResult('🚫 This website is not secure. We do not recommend proceeding.');
-      }
-    } else {
-      setResult('🔒 This website does not have an SSL certificate. It is not secure.');
+    try {
+      const res = await fetch('http://13.232.134.130:5000/ask', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ "message": message }),
+      });
+      console.log("Request sent");
+    
+      const data = await res.json();
+      setResponse(data.message); // Backend returns "message" key in response
+    } catch (error) {
+      console.error('Error:', error);
+      setResponse('Sorry, there was an error connecting to the server. Please try again later.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="rounded-xl p-6 shadow-md bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 transition-all duration-300 max-w-xl mx-auto">
-      <h2 className="text-2xl font-bold mb-4">🛡️ Help Assistant</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block font-medium mb-1">Does the website have an SSL certificate?</label>
-          <select
-            value={hasSSL}
-            onChange={(e) => setHasSSL(e.target.value)}
+    <>
+      <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
+        <div className="mb-4">
+          <textarea
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            rows={3}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="Type your question here..."
             required
-            className="w-full p-2 rounded bg-neutral-200 text-neutral-900 dark:bg-neutral-1200 dark:text-neutral-100"
-          >
-            <option value="">-- Select --</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
+          />
         </div>
-
-        {hasSSL === 'yes' && (
-          <div>
-            <label className="block font-medium mb-1">Enter website safety score (0–100)</label>
-            <input
-              type="number"
-              value={score}
-              onChange={(e) => setScore(e.target.value)}
-              min="0"
-              max="100"
-              required
-              className="w-full p-2 rounded bg-neutral-200 text-neutral-900 dark:bg-neutral-700 dark:text-neutral-100"
-            />
-          </div>
-        )}
-
         <button
           type="submit"
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded transition"
+          disabled={isLoading}
+          className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-700 disabled:bg-blue-300"
         >
-          Check
+          {isLoading ? 'Loading...' : 'Get Help'}
         </button>
       </form>
 
-      {result && (
-        <div className="mt-4 p-3 rounded-md border border-neutral-400 bg-neutral-200 text-neutral-900 dark:bg-neutral-700 dark:text-neutral-100">
-          <p>{result}</p>
+      {response && (
+        <div className="mt-6 max-w-2xl mx-auto">
+          <h3 className="font-semibold mb-2">Response:</h3>
+          <div className="text-foreground">
+            {response}
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

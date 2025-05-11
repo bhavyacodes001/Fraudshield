@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Shield, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -35,7 +34,9 @@ const CallToAction: React.FC = () => {
               className="flex-shrink-0"
             >
               <a 
-                href="#" 
+                href="https://drive.google.com/file/d/1HKUyvMCvsiX4_WGdlIHWouJk47dXYsit/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="glow-button bg-shield-500 hover:bg-shield-600 text-white font-medium px-8 py-4 rounded-lg transition-all duration-300 inline-flex items-center space-x-2 text-lg shadow-lg shadow-shield-500/20 hover:shadow-shield-500/40"
               >
                 <Shield className="h-5 w-5" />
